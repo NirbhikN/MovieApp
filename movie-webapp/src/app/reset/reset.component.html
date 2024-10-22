@@ -1,0 +1,73 @@
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="page-content" style="font-family: 'Roboto', sans-serif;">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="row w-100">
+            <div class="col-lg-6 col-md-12 form-left d-flex justify-content-center align-items-center">
+                <img src="../../assets/images/MovieLand.jpg" alt="form" class="img-fluid rounded-start" style="height: 100%; width: auto;">
+            </div>
+            <div class="col-lg-6 col-md-12 form-right d-flex justify-content-center align-items-center">
+                <div class="w-100">
+                   
+                    <div class="tabcontent" id="forgot-password" style="font-size: 20px;">
+                        <h2>Forgot your password?</h2>
+
+                        <form [formGroup]="forgotPasswordForm" (ngSubmit)="onSubmit()">
+                            <!-- Email Input -->
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" formControlName="email" placeholder="Enter your email" required class="form-control">
+                                <div *ngIf="forgotPasswordForm.get('email')?.touched && forgotPasswordForm.get('email')?.invalid" class="error-message">
+                                    <small *ngIf="forgotPasswordForm.get('email')?.errors?.['required']">Email is required.</small>
+                                    <small *ngIf="forgotPasswordForm.get('email')?.errors?.['email']">Please enter a valid email.</small>
+                                </div>
+                            </div>
+
+                            <!-- Security Question Dropdown -->
+                            <div class="form-group position-relative">
+                                <label for="securityQuestion">Choose your security question</label>
+                                <select id="securityQuestion" formControlName="securityQuestion" required class="form-control">
+                                    <option value="" disabled>Select a question</option>
+                                    <option value="pet_name">What is the name of your first pet?</option>
+                                    <option value="mother_maiden">What is your mother's maiden name?</option>
+                                    <option value="city_born">In what city were you born?</option>
+                                    <option value="favorite_color">What is your favorite color?</option>
+                                </select>
+                                <i class="fas fa-chevron-down position-absolute" style="right: 10px; top: 70%; transform: translateY(-50%); color: #6c757d;"></i>
+                                
+                            </div>
+
+                            <!-- Answer to Security Question -->
+                            <div class="form-group">
+                                <label for="answer">Answer</label>
+                                <input type="text" id="answer" formControlName="securityAnswer" placeholder="Enter your answer" required class="form-control">
+                            </div>
+
+                            <!-- New Password Input with Validation -->
+                            <div class="form-group">
+                                <label for="password">New Password</label>
+                                <input type="password" id="password" formControlName="newPassword" placeholder="Create a new password" required class="form-control">
+                                <div *ngIf="forgotPasswordForm.get('newPassword')?.touched && forgotPasswordForm.get('newPassword')?.invalid" class="error-message">
+                                    <small *ngIf="forgotPasswordForm.get('newPassword')?.errors?.['required']">Password is required.</small>
+                                    <small *ngIf="forgotPasswordForm.get('newPassword')?.errors?.['minlength']">Password must be at least 8 characters long.</small>
+                                    <small *ngIf="forgotPasswordForm.get('newPassword')?.errors?.['pattern']">Password must contain an uppercase letter, a lowercase letter, a number, and a special character.</small>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary w-100 reset-button">Reset Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

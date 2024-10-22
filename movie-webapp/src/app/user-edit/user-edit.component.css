@@ -1,0 +1,227 @@
+/* General container styling */
+
+.whole {
+    background-color: #343a40; /* Dark background */
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #212425; /* Dark background */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+/* Back Button Styling */
+.btn-outline-secondary {
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+    color: rgba(255, 255, 255, 0.7); /* Light text */
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light hover */
+    color: #ffffff;
+}
+
+/* Profile Photo Section */
+.col-md-3 {
+    padding: 20px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Light border */
+}
+
+.col-md-3 .d-flex {
+    flex-direction: column;
+    align-items: center;
+}
+
+.col-md-3 img {
+    border-radius: 50%;
+    margin-bottom: 10px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.col-md-3 img:hover {
+    transform: scale(1.05);
+}
+
+.col-md-3 .font-weight-bold {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+}
+
+.col-md-3 .text-white-50 {
+    color: rgba(255, 255, 255, 0.7); /* Lighter text */
+    font-size: 1rem;
+}
+
+.col-md-3 span {
+    font-size: 0.9rem;
+    color: #ffffff; /* White text */
+    display: block;
+    margin-top: 5px;
+}
+
+/* Profile Information Section */
+.col-md-5 {
+    padding: 20px;
+}
+
+.col-md-5 h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+    margin-bottom: 20px;
+}
+
+.labels {
+    font-weight: bold;
+    color: #ffffff; /* White text */
+    margin-bottom: 5px;
+    display: block;
+}
+
+.row .form-control {
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+    background-color: #495057; /* Darker input background */
+    color: #ffffff; /* White text */
+}
+
+.row .form-control:focus {
+    border-color: #007bff; /* Focus color */
+    outline: none;
+}
+
+.row .form-control[readonly] {
+    background-color: #6c757d; /* Disabled background */
+    cursor: not-allowed;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Spacing and Responsive Adjustments */
+.mt-5 {
+    margin-top: 50px;
+}
+
+.mb-5 {
+    margin-bottom: 50px;
+}
+
+.mt-2 {
+    margin-top: 20px;
+}
+
+.mt-3 {
+    margin-top: 30px;
+}
+
+.mt-4 {
+    margin-top: 40px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .col-md-3, .col-md-5 {
+        padding: 10px;
+        border-right: none;
+    }
+
+    .col-md-3 img {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    .col-md-5 h4 {
+        font-size: 1.25rem;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .row .form-control {
+        font-size: 0.9rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-primary {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .btn-danger {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}

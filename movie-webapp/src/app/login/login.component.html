@@ -1,0 +1,71 @@
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="page-content" style="font-family: 'Roboto', sans-serif;">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="row w-100">
+            <div class="col-lg-6 col-md-12 form-left d-flex justify-content-center align-items-center">
+                <img src="../../assets/images/MovieLand.jpg" alt="form" class="img-fluid rounded-start" style="height: 100%; width: auto;">
+            </div>
+            <div class="col-lg-6 col-md-12 form-right d-flex justify-content-center align-items-center" style="font-size: 20px;">
+                <div class="w-75"> <!-- Adjusted width to provide some padding -->
+                    <div *ngIf="!showForgotPassword">
+                        <div class="tab mb-4">
+                            <button class="tablinks btn btn-link active" (click)="setActiveTab('sign-in')" id="defaultOpen">Sign In</button>
+                            <a routerLink="/register" class="tablinks btn btn-link">Sign Up</a>
+                        </div>
+
+                        <form class="form-detail" (ngSubmit)="onLogin()">
+                            <div class="tabcontent" [ngClass]="{'active': activeTab === 'sign-in'}" id="sign-in">
+                                <div class="form-group mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control" [(ngModel)]="email" required>
+                                </div>
+                                <div class="form-group mb-3 position-relative">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control" [(ngModel)]="password" [type]="passwordVisible ? 'text' : 'password'" required>
+                                    <button type="button" class="btn btn-link position-absolute" style="right: 10px; top: 50%; color: white;" (click)="togglePasswordVisibility()">
+                                        <i class="fas" [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+                                    </button>
+                                </div>
+                                <div class="form-row mb-3">
+                                    <button type="button" class="btn btn-link" style="color: white;" (click)="navigateToReset()">Forgot Password?</button>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="login" class="btn btn-primary w-100" value="Sign In">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div *ngIf="showForgotPassword" class="forgot-password-section mt-4">
+                        <h3>Recover Your Password</h3>
+                        <div class="form-group mb-3 position-relative">
+                            <label for="security_question" class="form-label">Security Question</label>
+                            <select id="security_question" class="form-control" [(ngModel)]="securityQuestion" required>
+                                <option value="" disabled selected>Select a question</option>
+                                <option value="pet_name">What is the name of your first pet?</option>
+                                <option value="mother_maiden">What is your mother's maiden name?</option>
+                                <option value="city_born">In what city were you born?</option>
+                                <option value="favorite_color">What is your favorite color?</option>
+                            </select>
+                            <i class="fas fa-chevron-down position-absolute" style="right: 10px; top: 70%; transform: translateY(-50%); color: white;"></i>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="security_answer" class="form-label">Answer</label>
+                            <input type="text" name="security_answer" id="security_answer" class="form-control" [(ngModel)]="securityAnswer" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary w-100" (click)="verifySecurityQuestion()">Verify Answer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

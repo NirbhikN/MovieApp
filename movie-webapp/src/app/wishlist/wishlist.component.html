@@ -1,0 +1,66 @@
+<div class="app-container">
+    <!-- Centered Search Bar -->
+    <form class="d-flex mx-auto mt-3" role="search" style="width: 50%; max-width: 600px;" (ngSubmit)="onSearch(); $event.preventDefault();">
+      <input class="form-control me-2 rounded-pill" type="search" placeholder="Search for movies"
+          aria-label="Search" style="padding: 0.75rem;" [(ngModel)]="searchText" (input)="onSearch()" name="search">
+    </form>
+  
+    <div class="container mt-5">
+      <!-- My Wishlist Section -->
+      <section *ngIf="!searchText">
+        <h3 class="section-heading">My Wishlist</h3>  
+
+         <!-- Check if wishlist is empty -->
+    <div *ngIf="wishlistMovies.length === 0" class="wishlist-empty">
+        <h5>Your wishlist is currently empty.</h5>
+      </div>
+  
+        <!-- Display wishlist movies if there are any -->
+        <div class="row" *ngIf="wishlistMovies.length > 0">
+          <div class="col-md-3 mb-4" *ngFor="let movie of wishlistMovies">
+            <div class="card h-100">
+              <img class="card-img-top movie-poster" [src]="movie.image" [alt]="movie.title" (click)="goToMovie(movie)">
+              <div class="card-body text-center">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">{{ movie.genre?.join(', ') }}</p>
+                <p class="card-text">
+                  <i class="fa-solid fa-star text-warning"></i> {{ movie.rating }}/10
+                </p>
+                <br>
+                <button class="btn btn-outline-danger" (click)="deleteFromList(movie.id)">
+                  <i class="fa-solid fa-trash me-2"></i>Remove from Wishlist
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Search Results Section -->
+      <section class="mt-5" *ngIf="searchText">
+        <h3 class="text-center">Search Results</h3>
+        <div class="row">
+          <div *ngIf="filteredMovies.length === 0" class="col-12 text-center">
+            <h5 class="text-danger" style="font-size: 1.5rem; margin-top: 20px; margin-bottom: 350px;">No results found</h5>
+          </div>
+          <div *ngFor="let movie of filteredMovies" class="col-md-3 mb-4" (click)="goToMovieTitle(movie)">
+            <div class="card h-100">
+              <img class="card-img-top movie-poster" [src]="movie.image" [alt]="movie.title">
+              <div class="card-body text-center">
+                <h5 class="card-title">{{ movie.title }}</h5>
+                <p class="card-text">{{ movie.genre.join(', ') }}</p>
+                <p class="card-text">
+                  <i class="fa-solid fa-star text-warning"></i> {{ movie.rating }}/10
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <div id="autoPopup" class="popup" style="display: none;">
+        <p id="popupMessage">Message will appear here.</p>
+      </div>
+    </div>
+  </div>
+  

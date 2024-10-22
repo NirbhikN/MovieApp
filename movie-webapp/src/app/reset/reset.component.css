@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+.page-content {
+  background-image: url('../../assets/images/background.jpg'); /* Path to your image */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  min-height: 100vh; /* Ensure it occupies full viewport height */
+}
+/* .page-content {
+  background: linear-gradient(136deg, rgb(0, 158, 253) 0%, rgb(42, 245, 152) 100%);
+} */
+.form-right {
+  /* padding: 30px; */
+  background: rgba(3, 28, 75, 0.8); /* Semi-transparent background */
+  /* border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px; */
+  color: #fff;
+  /* margin-left: 200px; */
+  backdrop-filter: blur(10px); /* Adds a blur effect behind the form */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+
+
+
+
+/* .tab {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.tab .tablinks {
+  color: #ccc;
+  font-size: 28px;
+  padding-bottom: 22px;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.tab .tablinks.active {
+  font-weight: 700;
+  color: #fff;
+  border-bottom-color: #30e1df;
+}
+
+.form-control {
+  background: transparent; /* Keep input backgrounds transparent */
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+}
+
+.form-control:focus {
+  border-color: #53c83c; /* Highlight border on focus */
+  background: rgba(255, 255, 255, 0.1); /* Slightly opaque on focus */
+  color:white;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #333;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: #ccc;
+}
+
+
+
+

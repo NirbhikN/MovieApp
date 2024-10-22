@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body"
+    style="box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+    <div class="container-fluid">
+        <!-- Brand Logo or Name -->
+        <a class="navbar-brand text-white fw-bold" routerLink="/" style="font-size: 1.5rem;">
+            <i class="fa-solid fa-film me-2"></i>MovieLand
+        </a>
+
+        <!-- Sign Up and Sign In Buttons (conditionally displayed) -->
+        <div *ngIf="!isLoggedIn" class="d-flex ms-auto">
+            <a class="btn btn-outline-light rounded-pill me-2" routerLink="register" style="padding: 0.5rem 1rem;">
+                Sign Up
+            </a>
+            <a class="btn btn-outline-light rounded-pill" routerLink="login" style="padding: 0.5rem 1rem;">
+                Sign In
+            </a>
+        </div>
+
+        <!-- Wishlist Button and Profile Button (conditionally displayed when logged in) -->
+        <div *ngIf="isLoggedIn" class="d-flex ms-auto">
+            <!-- Wishlist Button -->
+            <a class="btn btn-outline-light rounded-pill me-2" routerLink="wishlist" style="padding: 0.5rem 1rem;">
+                <i class="fa-solid fa-heart me-2"></i>Wishlist
+            </a>
+
+            <!-- Profile Dropdown Button -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle rounded-pill d-flex align-items-center px-3 py-2"
+                    type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                    style="background-color: #28a745; border: none;">
+                    <i class="fa-solid fa-user me-2"></i><span>Profile</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" routerLink="user"><i class="fa-solid fa-user-circle me-2"></i>View Profile</a></li>
+                    <li><a class="dropdown-item" routerLink="user/edit"><i class="fa-solid fa-edit me-2"></i>Edit Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" style="cursor: pointer;" (click)="logout()"><i class="fa-solid fa-sign-out-alt me-2"></i>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

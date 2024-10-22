@@ -1,0 +1,91 @@
+<div class="whole">
+<div class="container rounded">
+  <div class="row">
+
+      <!-- Back Button Section -->
+      <div class="col-md-12 text-left mb-3">
+          <button class="btn btn-outline-secondary" (click)="goBack()">
+              <i class="fas fa-arrow-left"></i> Back to Profile
+          </button>
+      </div>
+
+      <!-- Profile Photo Section -->
+      <div class="col-md-3 border-right">
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+              <img
+                  class="rounded-circle mt-5"
+                  width="150px"
+                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+              />
+              <span class="font-weight-bold text-white">{{ user?.userName }}</span>
+              <span class="text-white-50">{{ user?.email }}</span>
+              <span class="text-white">Member since: January 2022</span>
+          </div>
+      </div>
+
+      <!-- Profile Settings Section -->
+      <div class="col-md-5 border-right">
+          <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4 class="text-right text-white">Edit Profile</h4>
+              </div>
+
+              <form [formGroup]="updateForm" (ngSubmit)="editUser()">
+                  <!-- Name and Email -->
+                  <div class="row mt-2">
+                      <div class="col-md-6">
+                          <label class="labels text-white">First Name</label>
+                          <input
+                              type="text"
+                              class="form-control"
+                              placeholder="First Name"
+                              formControlName="firstName"
+                          />
+                      </div>
+                      <div class="col-md-6">
+                          <label class="labels text-white">Last Name</label>
+                          <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Last Name"
+                              formControlName="lastName"
+                          />
+                      </div>
+                  </div>
+
+                  <!-- Mobile Number -->
+                  <div class="row mt-3">
+                      <div class="col-md-12">
+                          <label class="labels text-white">Mobile Number</label>
+                          <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter phone number"
+                              formControlName="phoneNo"
+                          />
+                      </div>
+                  </div>
+
+                  <!-- Save Profile and Delete User Buttons -->
+                  <div class="mt-5 text-center">
+                      <button
+                          class="btn btn-primary profile-button"
+                          type="submit"
+                          [disabled]="!updateForm.valid"
+                      >
+                          Save Profile
+                      </button>
+                      <button
+                          class="btn btn-danger profile-button mx-2"
+                          type="button"
+                          (click)="deleteUser()"
+                      >
+                          Delete User
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+</div>

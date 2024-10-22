@@ -1,0 +1,54 @@
+<div class="whole">
+<div class="container rounded pt-5 pb-5 bg-dark text-white">
+    <div class="row">
+        <!-- Profile Photo Section -->
+        <div class="col-md-3 border-right border-light">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="rounded-circle mt-5" width="150px"
+                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                <span class="font-weight-bold">{{user?.userName}}</span>
+                <span class="text-white-50">{{user?.email}}</span>
+                <span>Member since: October 2024</span>
+            </div>
+        </div>
+
+        <!-- Profile Information Section -->
+        <div class="col-md-5 border-right border-light">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Information</h4>
+                </div>
+
+                <!-- Name and Email -->
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">First Name</label>
+                        <input type="text" class="form-control bg-dark text-white" [value]="user?.firstName" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Last Name</label>
+                        <input type="text" class="form-control bg-dark text-white" [value]="user?.lastName" readonly>
+                    </div>
+                </div>
+
+                <!-- Mobile and Email ID -->
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels">Mobile Number</label>
+                        <input type="text" class="form-control bg-dark text-white" [value]="user?.phoneNo" readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Email ID</label>
+                        <input type="text" class="form-control bg-dark text-white" [value]="user?.email" readonly>
+                    </div>
+                </div>
+
+                <!-- Edit Profile Button -->
+                <div class="mt-4 text-center">
+                    <button class="btn btn-primary" type="button" (click)="goToEdit()">Edit Profile</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

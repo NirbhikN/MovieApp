@@ -1,0 +1,102 @@
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="page-content" style="font-family: 'Roboto', sans-serif;">
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="row w-100">
+            <div class="col-lg-6 col-md-12 form-left d-flex justify-content-center align-items-center">
+                <img src="../../assets/images/MovieLand.jpg" alt="form" class="img-fluid rounded-start" style="height: 100%; width: auto;">
+            </div>
+            <div class="col-lg-6 col-md-12 form-right d-flex justify-content-center align-items-center">
+                <div class="w-100">
+                    <div class="tab mb-4">
+                        <a routerLink="/login" class="tablinks btn btn-link">Sign In</a>
+                        <button class="tablinks btn btn-link active" onclick="openCity(event, 'sign-up')" id="defaultOpen">Sign Up</button>
+                    </div>
+                    <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+                        <div class="tabcontent" id="sign-up" style="font-size: 20px;">
+                            <div class="form-group mb-3" >
+                                <label for="first_name" class="form-label">First Name</label>
+                                <input type="text" name="first_name" [(ngModel)]="firstName" id="first_name" class="form-control " style="font-size: 18px;" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="last_name" class="form-label">Last Name</label>
+                                <input type="text" name="last_name" [(ngModel)]="lastName" id="last_name" class="form-control" style="font-size: 18px;" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="your_email" class="form-label">E-Mail</label>
+                                <input type="email" name="your_email" [(ngModel)]="email" id="your_email" 
+                                       class="form-control" style="font-size: 18px;" 
+                                       required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                                <div *ngIf="registerForm.controls['your_email']?.invalid && (registerForm.controls['your_email']?.touched || registerForm.controls['your_email']?.dirty)" class="text-danger">
+                                    <small *ngIf="registerForm.controls['your_email']?.errors?.['required']">Email is required.</small>
+                                    <small *ngIf="registerForm.controls['your_email']?.errors?.['pattern']">Invalid email format.</small>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label for="your_phone" class="form-label">Phone Number</label>
+                                <input type="tel" name="your_phone" [(ngModel)]="phone" id="your_phone" 
+                                       class="form-control" 
+                                       pattern="^\d{10}$" maxlength="10" 
+                                       inputmode="numeric" style="font-size: 18px;" required>
+                                <div *ngIf="registerForm.controls['your_phone']?.invalid && (registerForm.controls['your_phone']?.touched || registerForm.controls['your_phone']?.dirty)" class="text-danger">
+                                    <small *ngIf="registerForm.controls['your_phone']?.errors?.['required']">Phone number is required.</small>
+                                    <small *ngIf="registerForm.controls['your_phone']?.errors?.['pattern']">Phone number must be exactly 10 digits.</small>
+                                </div>
+                            </div>
+                            
+                           <!-- New Password Input -->
+<div class="form-group mb-3 position-relative">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" name="password" [(ngModel)]="password" id="password" style="font-size: 18px;" class="form-control" [type]="passwordVisible ? 'text' : 'password'" required>
+    <button type="button" class="btn btn-link position-absolute" style="right: 10px; top: 50%; color:white" (click)="togglePasswordVisibility()">
+        <i class="fas" [ngClass]="passwordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+    </button>
+</div>
+
+<!-- Password Validation Errors -->
+<div *ngIf="passwordErrors.length > 0" class="text-danger">
+    <ul>
+        <li *ngFor="let error of passwordErrors">{{ error }}</li>
+    </ul>
+</div>
+
+<!-- Confirm Password Input -->
+<div class="form-group mb-3 position-relative">
+    <label for="comfirm_password" class="form-label">Confirm Password</label>
+    <input type="password" name="comfirm_password" [(ngModel)]="confirmPassword" id="comfirm_password" style="font-size: 18px;" class="form-control" [type]="confirmPasswordVisible ? 'text' : 'password'" required>
+    <button type="button" class="btn btn-link position-absolute" style="right: 10px; top: 50%; color:white" (click)="toggleConfirmPasswordVisibility()">
+        <i class="fas" [ngClass]="confirmPasswordVisible ? 'fa-eye-slash' : 'fa-eye'"></i>
+    </button>
+</div>
+
+                            <div class="form-group mb-3 position-relative">
+                                <label for="security_question" class="form-label">Security Question</label>
+                                <select name="security_question" [(ngModel)]="securityQuestion" id="security_question" class="form-control" required>
+                                    <option value="" disabled selected>Select a question</option>
+                                    <option value="pet_name">What is the name of your first pet?</option>
+                                    <option value="mother_maiden">What is your mother's maiden name?</option>
+                                    <option value="city_born">In what city were you born?</option>
+                                    <option value="favorite_color">What is your favorite color?</option>
+                                </select>
+                                <i class="fas fa-chevron-down position-absolute" style="right: 10px; top: 70%; transform: translateY(-50%); color: white;"></i>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="security_answer" class="form-label">Answer</label>
+                                <input type="text" name="security_answer" [(ngModel)]="securityAnswer" id="security_answer" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="register" class="btn btn-primary w-100" style="font-size: 20px;" [disabled]="!registerForm.valid" value="Register">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

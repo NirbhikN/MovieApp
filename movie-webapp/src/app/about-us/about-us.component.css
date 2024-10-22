@@ -1,0 +1,56 @@
+/* Optional: Custom styling to make the card content more engaging */
+.card-body {
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    color: #2c3e50; /* Slightly darker color for headings */
+  }
+  
+  h2 {
+    color: #ffffff; /* Bootstrap Primary color */
+  }
+  
+  a {
+    color: #3498db;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #1f6dbf;
+  }
+  
+  /* Custom hover for Contact Us section */
+  .card-body a.text-light:hover {
+    color: #f39c12; /* Golden yellow color for hover */
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds some subtle shadow */
+  }
+  
+  ul.list-group {
+    padding-left: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    h2 {
+      font-size: 22px;
+    }
+  
+    ul li {
+      font-size: 16px;
+    }
+  }
+  

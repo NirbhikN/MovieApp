@@ -1,0 +1,38 @@
+<div class="movie">
+<div *ngIf="movie" class="movie-container">
+    <div class="movie-header">
+        <img [src]="movie.image" [alt]="movie.title" class="movie-poster">
+        <div class="movie-info">
+            <h1 class="movie-title">{{ movie.title }} <span class="movie-year">({{ movie.year }})</span></h1>
+            <p><strong>Rank:</strong> #{{ movie.rank }}</p>
+            <p><strong>Rating:</strong> {{ movie.rating }}/10</p>
+            <p><strong>Genre:</strong> {{ movie.genre }}</p>
+            <p><strong>Director:</strong> {{ movie.director }}</p>
+            <p><strong>Writers:</strong> {{ movie.writers.join(', ') || 'N/A' }}</p>
+            
+            <a [href]="movie.imdb_link" target="_blank" class="imdb-link">View on IMDb</a>
+            <a  class="btn btn-success mx-2" (click)="addToList(movie)">Add to watchlist</a>
+
+        </div>
+    </div>
+
+    <div class="movie-description">
+        <h2>Description</h2>
+        <p>{{ movie.description }}</p>
+    </div>
+
+    <div *ngIf="movie.trailer_embed_link" class="movie-trailer">
+        <h2>Watch Trailer</h2>
+        <iframe width="560" height="315" 
+                [src]="sanitizer.bypassSecurityTrustResourceUrl(movie.trailer_embed_link)" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </div>
+    <div id="autoPopup" class="popup" style="display: none;">
+        <p id="popupMessage">Message will appear here.</p>
+    </div>
+    
+    
+</div>

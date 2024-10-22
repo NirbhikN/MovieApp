@@ -1,0 +1,203 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* color: #e1e1e1; Light text for readability */
+    font-family: 'Roboto', sans-serif; /* Modern and clean font */
+    line-height: 1.6;
+}
+
+.movie{
+    background-color: #6b6b6b; /* Slightly lighter than the background */
+}
+
+/* Movie Container */
+.movie-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #1e1e1e; /* Slightly lighter than the background */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+}
+
+/* Movie Header */
+.movie-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.movie-poster {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Poster shadow */
+    margin-right: 20px;
+}
+
+.movie-info {
+    flex: 1;
+}
+
+.movie-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif; /* Bold, cinematic font */
+    margin-bottom: 0.5rem;
+}
+
+.movie-year {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+}
+
+.movie-info p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #b0b0b0;
+}
+
+.movie-info p strong {
+    color: #ffffff; /* White text for labels */
+}
+
+/* Links and Buttons */
+.imdb-link {
+    display: inline-block;
+    background-color: #f5c518;
+    color: #121212;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.imdb-link:hover {
+    background-color: #d4a714;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745; /* Green button */
+    color: #ffffff;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* Movie Description */
+.movie-description {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.movie-description h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.movie-description p {
+    color: #b0b0b0;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Movie Trailer */
+.movie-trailer {
+    margin-top: 2rem;
+}
+
+.movie-trailer h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.movie-trailer iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Trailer video shadow */
+}
+
+.popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure it's on top of other elements */
+    transition: opacity 0.5s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .movie-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .movie-poster {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    .movie-info {
+        flex: 1;
+    }
+
+    .movie-title {
+        font-size: 2rem;
+    }
+
+    .movie-year {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .movie-title {
+        font-size: 1.5rem;
+    }
+
+    .movie-year {
+        font-size: 0.9rem;
+    }
+
+    .movie-info p {
+        font-size: 0.9rem;
+    }
+
+    .imdb-link, .btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .movie-description p {
+        font-size: 0.9rem;
+    }
+}
